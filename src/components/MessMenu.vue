@@ -97,7 +97,7 @@ export default {
           this.data_menu = "north_menu_odd"
         }
         else{
-          this.data_menu = "north_menu_odd"
+          this.data_menu = "north_menu_even"
         }
       }
       else{
@@ -121,7 +121,7 @@ export default {
       else{
         this.current_menu = "North"
         if(this.current_week==="Odd") this.data_menu = "north_menu_odd"
-        else this.data_menu = "north_menu_odd"
+        else this.data_menu = "north_menu_even"
       }
       document.getElementById("card").classList.remove("anim");
       setTimeout(() => {
