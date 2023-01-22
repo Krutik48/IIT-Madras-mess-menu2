@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center flex-column align-items-center my-2">
     <div class="head-div">
       <h1 class="menu-title">{{ current_menu }} Mess Menu</h1>
-      <h2 class="menu-week">{{ current_week }} Week</h2>
+      <h2 class="menu-week">{{ current_week }} Week </h2>
       <div class="head-line"></div>
     </div>
 
@@ -47,6 +47,9 @@
       <button  @click="previous" id="previousBtn" class="btn btn-dark mx-2 nav-btn">Previous</button>
       <button  @click="next" id="nextBtn" class="btn btn-dark mx-2 nav-btn">Next</button>
     </div>
+    <a href="https://linktr.ee/mmcc_iitm" class="link-dark feedback-link">
+      <p id="feedback">Mess Feedback</p>
+    </a>
     <div class="footer-line"></div>
     <h6 class="footer">Developed By Krutik</h6>
   </div>
@@ -250,6 +253,7 @@ export default {
   font-size: 40px;
   font-weight: 400;
 }
+
 .menu-week{
   text-align: center;
   font-size: 15px;
@@ -278,6 +282,9 @@ export default {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   color:gray;
+}
+.feedback-link{
+  margin-bottom: -20px;
 }
 .footer{
   margin-top:10px;

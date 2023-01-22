@@ -10,7 +10,7 @@ import gobiManchurian from './assets/gobi-manchurian.jpg'
 import greenBean from './assets/green-bean-carrot.jpg'
 import idli from './assets/idli.jpg'
 import kachori from './assets/kachori.jpeg'
-import kadai from './assets/kadai-paneer.jpg'
+import kadai from './assets/Kadai-Paneer.jpg'
 import karela from './assets/karela-sabzi.jpg'
 import kolhapuri from './assets/kolhapuri.jpg'
 import lassi from './assets/lassi.jpeg'
@@ -30,6 +30,8 @@ import pumpChana from './assets/pumpkin-chana.jpg'
 import ravaKichadi from './assets/rava-Kichadi.jpg'
 import uttapam from './assets/uttapam.jpg'
 import southRice from './assets/south-rice.jpg'
+import semiyaUpma from './assets/semiya-upma.jpeg'
+import soyaChunk from './assets/soya-chunk.jpeg'
 import tomatoRice from './assets/tomatoRice.jpg'
 import upma from './assets/upma.jpg'
 import bournvita from './assets/bournvita-milk.jpg'
@@ -43,7 +45,7 @@ const data = {
       },
       Monday:{
         bf:[ravaKichadi],
-        lunch:[greenBean],
+        lunch:[soyaChunk],
         dinner:[gobiManchurian],
       },
       Tuesday:{
@@ -80,7 +82,7 @@ const data = {
       },
       Monday:{
         bf:[dalCheela],
-        lunch:[bananaSabji],
+        lunch:[soyaChunk],
         dinner:[mixVeg],
       },
       Tuesday:{
@@ -148,7 +150,7 @@ const data = {
     },
     south_menu_even:
       {Sunday:{
-        bf:[poha],
+        bf:[semiyaUpma],
         lunch:[paneerButter],
         dinner:[choleBhatura],
       },

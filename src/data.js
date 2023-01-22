@@ -91,7 +91,7 @@ const data = {
         "Boiled Egg (Non-Veg)",
         "Tea/Coffee/Milk",
         "White Bread Channa Chaat",
-        "Mix Veg U Jamthappam",
+        "Mix Veg Uthappam",
         "Coconut Chutney",
         "Sambhar"],
         lunch:["Peas Pulao",
