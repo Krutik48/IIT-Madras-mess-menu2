@@ -166,32 +166,34 @@ export default {
       this.setItmes();
     },
     previous(){
-      if(this.day_no_for_full_munu!==0) this.day_no_for_full_munu--;
-      this.day_for_full_menu = this.weekday[this.day_no_for_full_munu];
-      document.getElementById("card1").classList.remove("anim");
-      document.getElementById("card2").classList.remove("anim");
-      document.getElementById("card3").classList.remove("anim");
-      setTimeout(() => {
-        document.getElementById("card1").classList.add("anim");
-        document.getElementById("card2").classList.add("anim");
-        document.getElementById("card3").classList.add("anim");
-      }, 1);
-      this.setItmes();
+      if(this.day_no_for_full_munu!==0){
+        this.day_no_for_full_munu--;
+        this.day_for_full_menu = this.weekday[this.day_no_for_full_munu];
+        document.getElementById("card1").classList.remove("anim");
+        document.getElementById("card2").classList.remove("anim");
+        document.getElementById("card3").classList.remove("anim");
+        setTimeout(() => {
+          document.getElementById("card1").classList.add("anim");
+          document.getElementById("card2").classList.add("anim");
+          document.getElementById("card3").classList.add("anim");
+        }, 1);
+        this.setItmes();
+      } 
     },
     next(){
       if(this.day_no_for_full_munu<6){
         this.day_no_for_full_munu++;
+        this.day_for_full_menu = this.weekday[this.day_no_for_full_munu];
+        document.getElementById("card1").classList.remove("anim");
+        document.getElementById("card2").classList.remove("anim");
+        document.getElementById("card3").classList.remove("anim");
+        setTimeout(() => {
+          document.getElementById("card1").classList.add("anim");
+          document.getElementById("card2").classList.add("anim");
+          document.getElementById("card3").classList.add("anim");
+        }, 1);
+        this.setItmes();
       }
-      this.day_for_full_menu = this.weekday[this.day_no_for_full_munu];
-      document.getElementById("card1").classList.remove("anim");
-      document.getElementById("card2").classList.remove("anim");
-      document.getElementById("card3").classList.remove("anim");
-      setTimeout(() => {
-        document.getElementById("card1").classList.add("anim");
-        document.getElementById("card2").classList.add("anim");
-        document.getElementById("card3").classList.add("anim");
-      }, 1);
-      this.setItmes();
     },
     setItmes(){
       if(this.day_no_for_full_munu==0){
@@ -281,7 +283,7 @@ export default {
   box-shadow: 0px 5px 10px gray;
 }
 .anim{
-  animation: post-card-anim 0.7s ease-out;
+  animation: post-card-anim 0.3s ease-out;
 }
 .full-card{
   margin:20px;
@@ -365,18 +367,18 @@ export default {
 
 @keyframes post-card-anim{
     0%{
-        transform: scale(0);
+        transform: scale(0.5);
         opacity: 0;
     }
-    40%{
-        transform: scale(1.25);
+    /* 40%{
+        transform: scale(1.1);
     }
     60%{
         transform: scale(1);
     }
     80%{
         transform: scale(1.1);
-    }
+    } */
     100%{
         transform: scale(1);
         opacity: 100;
