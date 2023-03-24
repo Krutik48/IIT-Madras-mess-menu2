@@ -54,12 +54,12 @@ const data = {
         dinner:[bhindiDoPyaza],     
       },
       Wednesday:{
-        bf:[uttapam],
+        bf:[macroni],
         lunch:[kadai],
         dinner:[partha],  
       },
       Thursday:{
-        bf:[macroni],
+        bf:[uttapam],
         lunch:[pumpChana],
         dinner:[mixVeg],     
       },

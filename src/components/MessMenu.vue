@@ -19,23 +19,27 @@
           <li class="card-text" v-for="item in items" :key="item">{{ item }}</li>
         </div>
     </div>
-    <h2 class="full-title" id="full_menu_title">{{ full_munu_title }}</h2>
+    <div class="d-flex flex-row justify-content-center align-items-center title-div">
+      <img :src="backIcon" id="back" class="icon mx-2" @click="previous"/>
+      <h2 class="full-title" id="full_menu_title">{{ full_munu_title }}</h2>
+      <img :src="nextIcon" id="next" class="icon mx-2" @click="next"/>
+    </div>
     <div class="d-flex justify-content-center flex-row flex-wrap">
-      <div class="card full-card anim" style="width: 18rem;">
+      <div class="card full-card anim" id="card1" style="width: 18rem;">
           <img :src="bfImgSrc" class="card-img-top img-fluid"/>
           <div class="card-body">
             <h5 class="card-title" id="card-title">Breakfast Menu</h5>
             <li class="card-text" v-for="item in breakfast_items" :key="item">{{ item }}</li>
           </div>
       </div>
-      <div class="card full-card anim" style="width: 18rem;">
+      <div class="card full-card anim" id="card2" style="width: 18rem;">
           <img :src="lunchImgSrc" class="card-img-top img-fluid"/>
           <div class="card-body">
             <h5 class="card-title" id="card-title">Lunch Menu</h5>
             <li class="card-text" v-for="item in lunch_items" :key="item">{{ item }}</li>
           </div>
       </div>
-      <div class="card full-card anim" style="width: 18rem;">
+      <div class="card full-card anim" id="card3" style="width: 18rem;">
           <img :src="dinnerImgSrc" class="card-img-top img-fluid" />
           <div class="card-body">
             <h5 class="card-title" id="card-title">Dinner Menu</h5>
@@ -43,12 +47,15 @@
           </div>
       </div>
     </div>
-    <div class="toogle-btn d-flex justify-content-center flex-row align-items-center">
+    <!-- <div class="toogle-btn d-flex justify-content-center flex-row align-items-center">
       <button  @click="previous" id="previousBtn" class="btn btn-dark mx-2 nav-btn">Previous</button>
       <button  @click="next" id="nextBtn" class="btn btn-dark mx-2 nav-btn">Next</button>
-    </div>
+    </div> -->
     <a href="https://linktr.ee/mmcc_iitm" class="link-dark feedback-link">
       <p id="feedback">Mess Feedback</p>
+    </a>
+    <a href="https://forms.gle/7UhtbUYLmg9tBEWn6" class="link-dark feedback-link my-1">
+      <p id="feedback">Website Feedback</p>
     </a>
     <div class="footer-line"></div>
     <h6 class="footer">Developed By Krutik</h6>
@@ -60,11 +67,20 @@
 import data from "../data"
 import mealIcon from "../assets/meal.jpg"
 import imageData from "../imageData"
+import nextIcon from "../assets/next.svg"
+import backIcon from "../assets/back.svg"
+import backIconDisabled from "../assets/backDisabled.svg"
+import nextIconDisabled from "../assets/nextDisabled.svg"
+
 export default {
   name: 'MessMenu',
   data(){
     return{
       mealImg: mealIcon,
+      nextIcon: nextIcon,
+      backIcon: backIcon,
+      backIconDisabled: backIconDisabled,
+      nextIconDisabled: nextIconDisabled,
       current_menu : "North", // north or south
       current_week : "Odd",   // odd or even
       current_day : "",       // "sunday", "monday".....
@@ -150,8 +166,16 @@ export default {
       this.setItmes();
     },
     previous(){
-      if(this.day_no_for_full_menu!==0) this.day_no_for_full_munu--;
+      if(this.day_no_for_full_munu!==0) this.day_no_for_full_munu--;
       this.day_for_full_menu = this.weekday[this.day_no_for_full_munu];
+      document.getElementById("card1").classList.remove("anim");
+      document.getElementById("card2").classList.remove("anim");
+      document.getElementById("card3").classList.remove("anim");
+      setTimeout(() => {
+        document.getElementById("card1").classList.add("anim");
+        document.getElementById("card2").classList.add("anim");
+        document.getElementById("card3").classList.add("anim");
+      }, 1);
       this.setItmes();
     },
     next(){
@@ -159,20 +183,32 @@ export default {
         this.day_no_for_full_munu++;
       }
       this.day_for_full_menu = this.weekday[this.day_no_for_full_munu];
+      document.getElementById("card1").classList.remove("anim");
+      document.getElementById("card2").classList.remove("anim");
+      document.getElementById("card3").classList.remove("anim");
+      setTimeout(() => {
+        document.getElementById("card1").classList.add("anim");
+        document.getElementById("card2").classList.add("anim");
+        document.getElementById("card3").classList.add("anim");
+      }, 1);
       this.setItmes();
     },
     setItmes(){
       if(this.day_no_for_full_munu==0){
-        document.getElementById("previousBtn").classList.add("disabled");
+        // document.getElementById("previousBtn").classList.add("disabled");
+        document.getElementById("back").src = this.backIconDisabled;
       }
       else{
-        document.getElementById("previousBtn").classList.remove("disabled");
+        // document.getElementById("previousBtn").classList.remove("disabled");
+        document.getElementById("back").src = this.backIcon;
       }
       if(this.day_no_for_full_munu==6){
-        document.getElementById("nextBtn").classList.add("disabled");
+        // document.getElementById("nextBtn").classList.add("disabled");
+        document.getElementById("next").src = this.nextIconDisabled;
       }
       else{
-        document.getElementById("nextBtn").classList.remove("disabled");
+        // document.getElementById("nextBtn").classList.remove("disabled");
+        document.getElementById("next").src = this.nextIcon;
       }
       if(this.current_day==this.day_for_full_menu){
         this.full_munu_title = "Today's Full Menu"
@@ -228,6 +264,10 @@ export default {
 </script>
 
 <style scoped>
+.icon{
+  width: 30px;
+  cursor: pointer;
+}
 .card-title{
   font-family: 'Poppins', sans-serif;
 }
@@ -285,17 +325,22 @@ export default {
 }
 .feedback-link{
   margin-bottom: -20px;
+  text-align: center;
 }
 .footer{
   margin-top:10px;
   color:gray;
   font-family: "Raleway", sans-serif;
+  text-align: center;
 }
 .full-title{
   font-size:30px;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   color:gray;
+  margin-bottom: 0px;
+}
+.title-div{
   margin-top: 50px;
 }
 .card-img-top{
