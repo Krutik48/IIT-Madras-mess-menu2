@@ -11,6 +11,14 @@
       <button @click="toogleWeek" class="btn btn-dark mx-2">Change Week</button>
     </div>
 
+    <div>
+      <!-- make select box for veg or non-veg -->
+      <select class="form-select m-2" aria-label="Default select example" @change="toogleTime">
+        <option selected value="veg">Veg</option>
+        <!-- <option value="non-veg">Non-Veg (Available soon)</option>      -->
+      </select>
+    </div>
+
     <h2 class="day-title">{{ current_day}} Menu</h2>
     <div class="card mx-auto anim" id="card" style="width: 18rem;">
         <img :src="imgSrc" class="card-img-top img-fluid" ref="topCard">
