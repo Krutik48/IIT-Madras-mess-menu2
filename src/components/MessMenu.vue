@@ -1,5 +1,9 @@
 <template>
   <div class="d-flex justify-content-center flex-column align-items-center my-2">
+    <!-- <div class="alert alert-success alert-dismissible" role="alert">
+      A simple success alert—check it out!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> -->
     <div class="head-div">
       <h1 class="menu-title">{{ current_menu }} Mess Menu</h1>
       <h2 class="menu-week">{{ current_week }} Week </h2>
@@ -12,10 +16,10 @@
     </div>
 
     <div>
-      <!-- make select box for veg or non-veg -->
-      <select class="form-select m-2" aria-label="Default select example" @change="toogleTime">
-        <option selected value="veg">Veg</option>
-        <!-- <option value="non-veg">Non-Veg (Available soon)</option>      -->
+      <!--select veg or non veg and bind with current_type -->
+      <select class="form-select" aria-label="Default select example" v-model="current_type" @change="toogleType">
+        <option value="veg">Veg</option>
+        <option value="non_veg">Non-Veg</option>
       </select>
     </div>
 
@@ -24,7 +28,12 @@
         <img :src="imgSrc" class="card-img-top img-fluid" ref="topCard">
         <div class="card-body">
           <h5 class="card-title" id="card-title">{{ current_title }}</h5>
-          <li class="card-text" v-for="item in items" :key="item">{{ item }}</li>
+          <li class="card-text" v-for="item in items" :key="item">
+            <span v-if="item.startsWith('hl')" style="color: brown; font-weight:500">
+              {{ item.slice(2) }}
+            </span>
+            <span v-else>{{ item }}</span>
+          </li>
         </div>
     </div>
     <div class="d-flex flex-row justify-content-center align-items-center title-div">
@@ -37,21 +46,36 @@
           <img :src="bfImgSrc" class="card-img-top img-fluid"/>
           <div class="card-body">
             <h5 class="card-title" id="card-title">Breakfast Menu</h5>
-            <li class="card-text" v-for="item in breakfast_items" :key="item">{{ item }}</li>
+            <li class="card-text" v-for="item in breakfast_items" :key="item">
+              <span v-if="item.startsWith('hl')" style="color: brown; font-weight:500">
+              {{ item.slice(2) }}
+              </span>
+              <span v-else>{{ item }}</span>
+            </li>
           </div>
       </div>
       <div class="card full-card anim" id="card2" style="width: 18rem;">
           <img :src="lunchImgSrc" class="card-img-top img-fluid"/>
           <div class="card-body">
             <h5 class="card-title" id="card-title">Lunch Menu</h5>
-            <li class="card-text" v-for="item in lunch_items" :key="item">{{ item }}</li>
+            <li class="card-text" v-for="item in lunch_items" :key="item">
+              <span v-if="item.startsWith('hl')" style="color: brown; font-weight:500">
+                {{ item.slice(2) }}
+              </span>
+              <span v-else>{{ item }}</span>
+            </li>
           </div>
       </div>
       <div class="card full-card anim" id="card3" style="width: 18rem;">
           <img :src="dinnerImgSrc" class="card-img-top img-fluid" />
           <div class="card-body">
             <h5 class="card-title" id="card-title">Dinner Menu</h5>
-            <li class="card-text" v-for="item in dinner_items" :key="item">{{ item }}</li>
+            <li class="card-text" v-for="item in dinner_items" :key="item">
+              <span v-if="item.startsWith('hl')" style="color: brown; font-weight:500">
+                {{ item.slice(2) }}
+              </span>
+              <span v-else>{{ item }}</span>
+            </li>
           </div>
       </div>
     </div>
@@ -59,11 +83,14 @@
       <button  @click="previous" id="previousBtn" class="btn btn-dark mx-2 nav-btn">Previous</button>
       <button  @click="next" id="nextBtn" class="btn btn-dark mx-2 nav-btn">Next</button>
     </div> -->
+    <p class="m-3" style="text-align: justify;">
+      <b>Note:</b> Once you set the mess and week, it will be saved in your browser. So, you don't have to set it again and it will be automatically set when you open the website next time in same browser.
+      Photos are just for representation purpose. Actual food may vary and may not look as good as in photos🙂 and Don't forget to give 
+      <a href="https://forms.gle/7UhtbUYLmg9tBEWn6" class="feedback-link">
+        Website Feedback.</a>
+    </p>
     <a href="https://linktr.ee/mmcc_iitm" class="link-dark feedback-link">
-      <p id="feedback">Mess Feedback</p>
-    </a>
-    <a href="https://forms.gle/7UhtbUYLmg9tBEWn6" class="link-dark feedback-link my-1">
-      <p id="feedback">Website Feedback</p>
+      <p id="feedback">mmcc_iitm</p>
     </a>
     <div class="footer-line"></div>
     <h6 class="footer">Developed By Krutik</h6>
@@ -91,6 +118,7 @@ export default {
       nextIconDisabled: nextIconDisabled,
       current_menu : "North", // north or south
       current_week : "Odd",   // odd or even
+      current_type : "veg",   // veg or non-veg
       current_day : "",       // "sunday", "monday".....
       current_hour : "",      
       current_time : "",
@@ -116,29 +144,83 @@ export default {
   },
   created(){
     let menu  = JSON.parse(localStorage.getItem("menu"))
+    let storedTime= JSON.parse(localStorage.getItem("lastMondayTime"))
+    let weekDiff = 0
+    
+    if(storedTime){
+      let date = new Date()
+      let day = date.getDay()
+      let diff = date.getDate() - day + (day == 0 ? -6:1)
+      let monday = new Date(date.setDate(diff))
+  
+      let timeDiff = monday.getTime() - storedTime
+  
+      let dayDiff = timeDiff / (1000 * 3600 * 24)
+      dayDiff = Math.floor(dayDiff)
+      console.log("dayDiff",dayDiff)
+      
+      weekDiff = Math.floor((dayDiff)/7)
+      console.log("weekDiff",weekDiff)
+    }
+
+    let type = JSON.parse(localStorage.getItem("type"))
+    if (type){
+      this.current_type = type
+    }
     if(menu){
       this.current_week = menu[0];
-      this.current_menu = menu[1]
+      this.current_menu = menu[1];
       if(this.current_menu==="North"){
         if(this.current_week=="Odd"){
-          this.data_menu = "north_menu_odd"
+          if(weekDiff%2==0){
+            this.data_menu = "north_menu_odd"
+          }
+          else{
+            this.data_menu = "north_menu_even"
+            this.current_week = "Even"
+          }
         }
         else{
-          this.data_menu = "north_menu_even"
+          if(weekDiff%2==0){
+            this.data_menu = "north_menu_even"
+          }
+          else{
+            this.data_menu = "north_menu_odd"
+            this.current_week = "Odd"
+          }
         }
       }
       else{
         if(this.current_week=="Odd"){
-          this.data_menu = "south_menu_odd"
+          if(weekDiff%2==0){
+            this.data_menu = "south_menu_odd"
+          }
+          else{
+            this.data_menu = "south_menu_even"
+            this.current_week = "Even"
+          }
         }
         else{
-          this.data_menu = "south_menu_even"
+          if(weekDiff%2==0){
+            this.data_menu = "south_menu_even"
+          }
+          else{
+            this.data_menu = "south_menu_odd"
+            this.current_week = "Odd"
+          }
         }
       }
     } 
     
   },
   methods: {
+    toogleType(){
+      document.getElementById("card").classList.remove("anim");
+      setTimeout(() => {
+        document.getElementById("card").classList.add("anim");
+      }, 1);
+      this.setItmes();
+    },
     toogleMessMenu(){
       if(this.current_menu==="North"){
         this.current_menu = "South"
@@ -220,20 +302,23 @@ export default {
         // document.getElementById("nextBtn").classList.remove("disabled");
         document.getElementById("next").src = this.nextIcon;
       }
+
       if(this.current_day==this.day_for_full_menu){
         this.full_munu_title = "Today's Full Menu"
       }
       else{
         this.full_munu_title = this.day_for_full_menu + " Menu"
       }
-      this.items = data[this.data_menu][this.current_day][this.data_time]
-      this.breakfast_items = data[this.data_menu][this.day_for_full_menu]["bf"]
-      this.lunch_items = data[this.data_menu][this.day_for_full_menu]["lunch"]
-      this.dinner_items = data[this.data_menu][this.day_for_full_menu]["dinner"]
-      this.imgSrc = this.imgData[this.data_menu][this.current_day][this.data_time]
-      this.bfImgSrc =this.imgData[this.data_menu][this.day_for_full_menu]["bf"]
-      this.lunchImgSrc =this.imgData[this.data_menu][this.day_for_full_menu]["lunch"]
-      this.dinnerImgSrc =this.imgData[this.data_menu][this.day_for_full_menu]["dinner"]
+
+      this.items = data[this.current_type][this.data_menu][this.current_day][this.data_time]
+      this.breakfast_items = data[this.current_type][this.data_menu][this.day_for_full_menu]["bf"]
+      this.lunch_items = data[this.current_type][this.data_menu][this.day_for_full_menu]["lunch"]
+      this.dinner_items = data[this.current_type][this.data_menu][this.day_for_full_menu]["dinner"]
+      this.imgSrc = this.imgData[this.current_type][this.data_menu][this.current_day][this.data_time]
+      this.bfImgSrc =this.imgData[this.current_type][this.data_menu][this.day_for_full_menu]["bf"]
+      this.lunchImgSrc =this.imgData[this.current_type][this.data_menu][this.day_for_full_menu]["lunch"]
+      this.dinnerImgSrc =this.imgData[this.current_type][this.data_menu][this.day_for_full_menu]["dinner"]
+
       if(this.imgSrc==""){
         this.imgSrc = this.mealImg
       }
@@ -244,6 +329,11 @@ export default {
     },
     saveWeek(){
       localStorage.setItem("menu",JSON.stringify([this.current_week,this.current_menu]))
+      localStorage.setItem("type",JSON.stringify(this.current_type))
+      var today = new Date();
+      var day = today.getDay();
+      var monday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - day + (day == 0 ? -6:1));
+      localStorage.setItem("lastMondayTime",JSON.stringify(monday.getTime()))
     }
   },
   mounted(){
