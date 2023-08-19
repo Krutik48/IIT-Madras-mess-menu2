@@ -2,18 +2,18 @@ const data = {
   veg:{
     north_menu_odd: 
       {Sunday:{
-        bf:["Mango / Orange jam", "Boiled Peanut", "Boiled Egg/ Oats", "hl Chole Bhature"],
-        lunch:["Veg Hyderabadi Biryani", "Roti", "Dal (Toor Dal)", "Bingan Bharta", "hl Paneer Butter Masala", "hl Ice Cream"],
-        dinner:["Rice", "Roti", "Rajma Masala", "hl Bhindi fry", "Banana fruit", "Lemon Juice"],
+        bf:["Mango / Orange jam", "Boiled Peanut", "Boiled Egg/ Oats", "hl Rava Dosa/Plain Dosa"],
+        lunch:["Veg Hyderabadi Biryani", "Roti", "Dal (Toor Dal)", "Raita", "hl Paneer Butter Masala", "hl Ice Cream/Sahi Tukda "],
+        dinner:["Rice", "Roti", "Rajma Masala", "hl Bhindi fry", "Mixed Fruit Salad", "Lemon Juice"],
       },
       Monday:{
-        bf:["Strawberry jam", "Boiled Chole", "Boiled Egg/Oats", "hl Dalia", "Jalebi"],
-        lunch:["Rice", "Roti", "Dal Makhani", "Gobi Capsicum Masala", "hl Chole Curry"],
-        dinner:["Rice", "Roti", "Chana dal", "hl Malai Kofta", "Moong Dal Halwa", "Orange fruit/ Papaya fruit"],
+        bf:["Mango jam", "Boiled Chole", "Boiled Egg/Oats", "hl Poha","Tamarind Chu tney", "Jalebi"],
+        lunch:["Rice", "Roti", "Dal Makhani", "Gobi Capsicum Masala", "hl Chole Curry dry"],
+        dinner:["Rice", "Roti", "Chana dal", "hl Malai Kofta", "Moong Dal Halwa"],
       },
       Tuesday:{
-        bf:["Mixed Fruit Jam", "Boiled Green Gram", "Omelette/Chocos", "hl Wheat Upma", "Kachori", "Coconut chutney"],
-        lunch:["Rice", "Roti", "Dal (Masoor)", "hl Bhindi Masala", "Sev Tomato"],
+        bf:["Mixed Fruit Jam", "Boiled Green Gram", "Omelette/Chocos", "Wheat Upma", "hl Kachori", "Coconut chutney", "Aloo Sabji"],
+        lunch:["Rice", "Roti", "Dal (Masoor)", "hl Bhindi Masala", "Sev Tomato", "Fried green chilli"],
         dinner:["Fried Rice", "Roti", "Toor dal", "hl Gobi Manchurian", "Water Melon fruit", "Buttermilk"],     
       },
       Wednesday:{
@@ -22,56 +22,56 @@ const data = {
         dinner:["Ghee Rice", "Roti", "Masoor Dal", "hl Kadai Paneer", "Mango fruit (for summer)", "Guava fruit", "Lemon Juice"],  
       },
       Thursday:{
-        bf:["Strawberry jam", "Green gram Sprouts", "Omelette/ Oats", "hl Pav Bhaji"],
-        lunch:["Wheat Khichdi", "Roti", "Dal (Toor)", "hl Karela fry", "Lauki Chana Dal (Semi-fry)"],
+        bf:["Mango jam", "Green gram Sprouts", "Omelette/ Oats", "hl Pav Bhaji", "Aloo Bonda"],
+        lunch:["Wheat Khichdi", "Roti", "Dal (Toor)", "hl Karela fry", "Lauki Chana Dal (Semi-fry)", "Mirchi Bhajji"],
         dinner:["Rice", "Roti", "Fried Dal", "hl Soya chunk curry", "Musk melon fruit", "Buttermilk"],     
       },
       Friday:{
-        bf:["Mixed Fruit Jam", "Mixed boiled peanut,", "chole, greengram", "Boiled Egg/ Chocos", "hl Aloo Paratha", "Curd", "Green chutney"],
+        bf:["Pineapple Jam", "Millet sprouts", "Boiled Egg/ Chocos", "hl Sabudana Khichdi", "Curd"],
         lunch:["Rice", "Roti", "Dal (Chana dal)", "Cabbage onion", "pakoda", "hl Mix Veg Curry"],
-        dinner:["Peas Pulao", "hl Methi Puri", "Dalma", "Sabudhana Kheer"],
+        dinner:["Navaratan Pulao", "hl Methi Puri","Dal Tadka","hl Black Chana Curry", "Dalma", "Sabudhana Kheer"],
       },
       Saturday:{
-        bf:["Pineapple Jam", "Millet sprouts", "Fried Egg/ Cornflakes", "hl Sabudana Khichdi", "Curd"],
-        lunch:["Rice", "Green Methi Paratha", "Dal (Urad)", "Aloo 65", "hl Vegetable Kurma", "Tomato ketchup"],
+        bf:["Mixed Fruit Jam", "Mixed boiled sprouts","Mixed boiled chole", "Boiled Egg/ Cornflakes", "hl Aloo Paratha", "Curd", "Green Chutney"],
+        lunch:["Rice", "Green Methi Paratha", "Dal (Urad)", "Aloo 65", "hl Vegetable Kurma"],
         dinner:["Sambar Rice", "Rice Khichdi", "Curd Rice", "hl Potato chips", "Mixed fruit Salad", "Boost + Milk"],
       }
     },
     north_menu_even :
       {Sunday:{
-        bf:["Mango / Orange jam", "Boiled Peanut", "Boiled Egg/ Oats", "hl Semiya Upma", "Groundnut chutney", "hl Cutlet", "Sauce"],
-        lunch:["Mixed Veg Biryani", "Roti", "Dal (Toor Dal)", "Vegetable Pakora fry", "hl Kadai Paneer", "hl Gulab Jamun"],
-        dinner:["Rice", "Roti", "Dal Fry", "hl Rajma Masala", "Banana fruit", "Lemon Juice"],
+        bf:["Mango / Orange jam", "Boiled Peanut", "Boiled Egg/ Oats", "hl Kachori", "Aloo sabji", "Imli chutney"],
+        lunch:["Mixed Veg Biryani", "Roti","Raita", "Dal (Toor Dal)", "Vegetable Pakora", "hl Kadai Paneer", "hl Gulab Jamun/Ice cream"],
+        dinner:["Rice", "Roti", "Dal Fry", "hl Soyabean masala", "Mixed fruit salad", " Lemon Juice"],
       },
       Monday:{
-        bf:["Strawberry Jam", "Boiled Chole", "Boiled Egg/ Oats", "hl Kal Dosa", "Sambhar", "Groundnut Chutney"],
-        lunch:["Rice", "Roti", "Dal (Moong)", "hl Tendli Aloo Fry", "hl Kadi Pakoda"],
-        dinner:["Rice", "Roti", "Chana dal", "hl Aloo brinjal Curry", "Pineapple fruit", "hl Rice Kheer"],
+        bf:["Pineapple Jam", "Millet sprouts", "Full Boiled Egg/ Cornflakes", "hl Poha", "Jalebi", "Tamarind Chutney"],
+        lunch:["Rice", "Roti", "hl Tendli Fry", "hl Jeera Aloo", "hl Kadi Pakoda"],
+        dinner:["Rice", "Roti", "Chana dal", "hl Bangara Baigan", "Pineapple fruit", "hl Rice Kheer"],
       },
       Tuesday:{
-        bf:["Mixed Fruit Jam", "Boiled Green Gram", "Omelette/ Chocos", "hl Maggi/ Kachori", "Sauce"],
-        lunch:["Rice", "Roti", "Dal (Masoor)", "Millet Vegetable", "hl Khichdi", "hl Aloo Bharta"],
-        dinner:["Fried Rice", "Roti", "Toor dal", "hl Vegetable Kofta", "Papaya fruit", "Buttermilk"],     
+        bf:["Mixed Fruit Jam", "Boiled Green Gram", "Omelette/ Chocos", "hl Maggi", "Cutlet", "Sauce"],
+        lunch:["Rice", "Roti", "Dal (Masoor)", "Jack fruit sabji", "Fried green chilli"],
+        dinner:["Peas Pulao", "Roti", "Toor dal", "hl Vegetable Kofta", "Papaya fruit", "Buttermilk"],     
       },
       Wednesday:{
-        bf:["Pineapple Jam", "Boiled Black Chana", "Fried Egg/Cornflakes", "hl Idli", "Sambar", "Coconut chutney"],
+        bf:["Pineapple Jam", "Boiled Black Chana", "Full Boiled Egg/Cornflakes", "hl Idli + Mendu Vada", "Mix Veg Sambar", "Coconut chutney"],
         lunch:["Rice", "Roti", "Dal (Rajma)", "Cabbage Onion", "pakoda", "hl Aloo Parwal (seasonal) curry", "Detox water"],
         dinner:["Rice", "Roti", "Masoor Dal", "hl Shahi Paneer", "Mixed Fruit Salad", "Lemon Juice"],  
       },
       Thursday:{
-        bf:["Strawberry jam", "Green gram Sprouts", "Omelette/ Oats", "hl Millet Chilla (with shredded vegetables mixed)", "Red chutney"],
-        lunch:["Moong Dal vegetable Khichdi", "Roti", "Dal (Toor)", "Green leaf sabji", "hl Aloo Gobhi curry"],
+        bf:["Mango jam", "Green gram Sprouts", "Omelette/ Oats", "hl Millet Chilla (with shredded vegetables mixed)", "Tomato + Onion chutney"],
+        lunch:["Moong Dal vegetable Khichdi", "Roti", "Aloo Chokha", "Fried green chilli", "hl Aloo Gobhi curry"],
         dinner:["Rice", "Roti", "Palak Dal", "hl Kala chana masala curry", "Water Melon fruit", "Buttermilk"],     
       },
       Friday:{
-        bf:["Mixed Fruit Jam", "Mixed boiled peanut,", "chole, green gram", "Boiled Egg/ Chocos", "hl Onion Uthappam", "Groundnut chutney", "Sambar"],
-        lunch:["Rice", "Roti", "Chana dal", "hl Paneer Bhurji", "Kadai Mix Veg Curry"],
-        dinner:["Jeera Rice", "Roti", "Urad Dal", "hl Chole curry", "Custard"],
+        bf:["Mixed Fruit Jam", "Boiled peanut/ Chole", "Boiled Egg/ Chocos", "hl Onion Uthappam", "Groundnut chutney", "Drumstick Sambar"],
+        lunch:["Rice", "Roti", "Chana dal", "hl Paneer onion Bhurji", "Kadai Mix Veg Curry"],
+        dinner:["Jeera Rice", "Roti", "Mixed Dal fry","Aloo Beans dry", "hl Chole curry", "Fruit Custard"],
       },
       Saturday:{
-        bf:["Pineapple Jam", "Millet sprouts", "Fried Egg/ Cornflakes", "hl Poha", "Jalebi", "Sauce"],
+        bf:["Mango Jam", "Boiled Chole", "Boiled Egg/ Cornflakes", "hl Kal Dosa", "Mix Veg Sambhar", "Groundnut Chutney"],
         lunch:["Rice", "Roti", "Dal (Urad)", "Mushroom Peas Masala", "hl Aloo Beans (dry)"],
-        dinner:["Imli Rice", "Rice Khichdi", "Curd Rice", "hl Potato chips", "Mixed fruit salad", "Horlicks+ Milk"],
+        dinner:["Rice", "Roti", "Dal Makhani", "hl Mixed Veg dry", "Banana fruit", "Horlicks+ Milk"],
       }
     },
     south_menu_odd:

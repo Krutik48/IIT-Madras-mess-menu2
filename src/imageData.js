@@ -88,17 +88,17 @@ const data = {
   veg:{
     north_menu_odd: 
     {Sunday:{
-        bf:[choleBhatura],
+        bf:[dosaRava],
         lunch:[paneerButter],
         dinner:[bhindiDoPyaza],
       },
       Monday:{
-        bf:[dalia],
+        bf:[poha],
         lunch:[cholePuri],
         dinner:[malaiKofta],
       },
       Tuesday:{
-        bf:[upma],
+        bf:[kachori],
         lunch:[bhindiDoPyaza],
         dinner:[gobiManchurian],     
       },
@@ -113,30 +113,30 @@ const data = {
         dinner:[soyaChunk],     
       },
       Friday:{
-        bf:[partha],
+        bf:[sabudanaKhichdi],
         lunch:[mixVeg],
         dinner:[methiPuri],
       },
       Saturday:{
-        bf:[sabudanaKhichdi],
+        bf:[partha],
         lunch:[vegKurma],
         dinner:[potetoChips],
       }
     },
     north_menu_even :
       {Sunday:{
-        bf:[semiyaUpma],
+        bf:[kachori],
         lunch:[paneerKadai],
-        dinner:[rajma],
+        dinner:[soyaChunk],
       },
       Monday:{
-        bf:[kalDosa],
+        bf:[poha],
         lunch:[kadhiPakoda],
         dinner:[alooBaigan],
       },
       Tuesday:{
         bf:[maggi],
-        lunch:[khichdi],
+        lunch:[],
         dinner:[vegKofta],     
       },
       Wednesday:{
@@ -155,9 +155,9 @@ const data = {
         dinner:[cholePuri],
       },
       Saturday:{
-        bf:[poha],
+        bf:[kalDosa],
         lunch:[alooBeans],
-        dinner:[potetoChips],
+        dinner:[mixVeg],
       }
     },
     south_menu_odd:
